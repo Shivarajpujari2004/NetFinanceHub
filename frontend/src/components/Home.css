@@ -1,0 +1,158 @@
+.home{
+    background-color:  #82acd5;
+    background-image: url("../../public/bank2.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    /* background-position:center; */
+    height: 100vh;
+    width: 100vw;
+    margin-top: 0px;
+}
+.student{
+    background-color: #fff;
+    height: 300px;
+    width: 300px;
+    box-shadow: 1px 1px 10px 1px rgb(135, 174, 221);
+    border-radius: 10px;
+}
+.personal{
+    background-color:#fff;
+    height: 300px;
+    width: 300px;
+    box-shadow: 1px 1px 10px 1px rgb(135, 174, 221);
+    border-radius: 10px;
+}
+marquee{
+    position: relative;
+    top: 418px;
+    background-color: rgb(29, 179, 190);
+    height: 30px;
+    margin-top: 10px;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 2px;
+    color: #080755;
+}
+.box{
+    position: relative;
+    left: 70%;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    top: 120px;
+    gap: 40px;
+}
+.b{
+    margin: 0;
+    transition: all 0.6s;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    text-align: center;
+    gap: 20px;
+}
+.b:hover{
+    transform: scale(1.05);
+}
+.img{
+    height: 200px;
+    width: 300px;
+    position: relative;
+    /* left: -10px; */
+}
+.bh{
+    font-size: 25px;
+}
+.imageslider{
+    position: relative;
+    top: 500px;
+    background-color: #fff;
+    height: 400px;
+    width: 90%;
+    left: 80px;
+}
+.socials{
+    background-color:rgb(11, 52, 119);
+    position: relative;
+    width: 60px;
+    gap: 10px;
+    padding: 10px;
+    top: 200px;
+    /* left: 220px; */
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.socials:hover{
+    background-color: transparent;
+}
+.social-icons{
+    color: white;
+    text-decoration: none;
+    margin-left: -140px;
+    width: 200px;
+    font-size: 30px;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    transition: 1s;
+}
+.social-icons:hover{
+    margin-left: 0px;
+    background-color: #fff;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 200px;
+}
+.fb:hover{
+    color:#3B5998 ;
+}
+.ig:hover{
+     color:#f03174;
+}
+.x:hover{
+    color:rgb(48, 43, 43);
+}
+.wa:hover{
+    color:#09fa61;
+}
+.icons{
+    position: relative;
+    top: 5px;
+}
+.xx{
+    font-size: 25px;
+    position: relative;
+    top: 5px;
+    left: 18px;
+}
+.fbb{
+    position: relative;
+    left: 8px;
+}
+.igg{
+    position: relative;
+    left: 3px;
+}
+.waa{
+    position: relative;
+    left: 5px;   
+}
+.login{
+    text-decoration: none;
+    border: 1px  solid black;
+    width: 60px;
+    /* background-color: #e19292; */
+    color: #080755;
+    text-align: center;
+    padding-top: 4px;
+    height: 30px;
+    border-radius: 4px;
+    margin-left: 120px;
+    margin-bottom: 20px;
+}
+.login:hover{
+    background-color: rgb(4, 49, 65);
+    color:  white;
+}

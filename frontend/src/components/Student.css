@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&family=Roboto:wght@300&display=swap');
+.left{
+    display: flex;
+    flex-direction: column;
+    float: left;
+    margin:40px;
+    margin-left: 28px;
+    background-color: #e7edf2;
+    height: 100vh;
+    width: 170px;
+    font-family: 'Roboto', sans-serif;
+}
+.upper{
+    display: flex;
+    margin-left: 350px;
+    gap: 100px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    font-family: 'Roboto', sans-serif;
+    color: aliceblue;
+}
+.bb{
+    
+    width: 450px;
+    border: 1px solid black;
+    height: 200px;
+    font-size: 20px;
+    box-shadow: 4px 5px 6px;
+}
+.tl{
+    float: left;
+    line-height: 35px;
+}
+.rl{
+    float: right;
+    line-height: 35px;
+}
+.ub{
+    display:flex;
+    padding: 10px;
+    justify-content: space-between;
+}
+.ach{
+    text-align: center;
+    font-size: 30px;
+}
+.bb h3{
+    font-size: 25px;
+}
+.bb h4{
+    font-size: 20px;
+}
+.lower{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+td{
+    padding:12px;
+}
+.lb{
+    border-radius:8px;
+    background: linear-gradient(90deg,rgb(68, 89, 171),rgb(134, 37, 139));
+}
+.rb{
+    border-radius:8px;
+    background: linear-gradient(90deg,rgb(89, 173, 195),blue);
+}
+.left a{
+    font-size: 20px;
+    padding: 10px;
+    color: rgb(15, 2, 8);
+}
+.left img{
+    width: 23px;
+    margin-top: 5px;
+    height: 20px;
+    position: relative;
+    top: 2px;
+}
+caption{
+    margin-bottom: 20px;
+}
+.tab{
+    border: 1px red solid;
+    border-collapse: collapse;
+}

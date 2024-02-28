@@ -85,4 +85,8 @@ caption{
 .tab{
     border: 1px red solid;
     border-collapse: collapse;
+    
+}
+th,td{
+    padding: 5px;
 }

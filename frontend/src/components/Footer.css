@@ -45,9 +45,10 @@ a{
 }
 hr{
     height: 2px;
-    background: rgb(1, 1, 41);
+    background: rgb(3, 2, 0);
     position: relative;
+    color: black;
     top: 40px;
-    margin-left: 90px;
+    margin-left: 100px;
     width: 1350px;
 }

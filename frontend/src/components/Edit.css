@@ -1,0 +1,51 @@
+.rightedit{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    left: 25%;
+    top: 20px;
+    font-size: 18px;
+    box-shadow: 1px 1px 10px black;
+}
+.rightedit input{
+    border-radius: 3px;
+}
+.reditboxes{
+    margin-top: -15px;
+    height: 25px;
+}
+.updatebtn{
+    width: 120px;
+    height: 30px;
+    position: relative;
+    left: 39%;
+    cursor: pointer;
+    font-size: 15px;
+    padding: 3px;
+    border-radius: 5px;
+}
+.updatebtn:hover{
+    color: azure;
+    background-color: black;
+}
+#filebtn{
+    color: rgb(14, 99, 99);
+}
+input[type="file"] {
+    display: none;
+  }
+#uploadbtn{
+    display: inline-block;
+    text-transform: uppercase;
+    color: #fff;
+    background: rgb(39, 98, 157);
+    text-align: center;
+    padding: 5px;
+    font-size: 15px;
+    user-select: none;
+    width: 180px;
+    cursor:pointer;
+    box-shadow:1px 5px 10px  grey;
+    border-radius: 3px;
+}

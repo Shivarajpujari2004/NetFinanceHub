@@ -1,0 +1,35 @@
+.profile >.right >#prof-img{
+    height: 100px;
+    width: 100px;
+    border: 1px solid grey;
+    border-radius: 50%;
+}
+.profile >.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px rgb(47, 47, 132);
+    padding: 10px;
+    border: 1px black solid;
+    width: 500px;
+    position: absolute;
+    left: 40%;
+    top: 180px;
+}
+.editbtn{
+    border: 1px solid rgb(15, 87, 87);
+    padding: 3px;
+    border-radius: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: rgb(21, 57, 45);
+    background-color: rgb(255, 255, 255);
+    transition: all 0s;
+}
+.editbtn:hover{
+    transform: scale(1.07);
+    background-color: rgb(156, 178, 198);
+}

@@ -1,27 +1,41 @@
 form{
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     border: 1px solid black;
     border-radius: 5px;
     box-shadow: 1px 1px 10px rgb(124, 122, 122);
     padding: 20px;
     width: 500px;
-    background-color: #ffffff29;
+    background-color: #ffffff12;
     backdrop-filter: blur(10px);
 }
 .logform{
-    background-image: url("../../public/loginbg.jpg");
+    background-image: url("../../public/bankbg.jpg");
     background-repeat: no-repeat;
     background-size:cover;
-    /* background-position:center; */
+    background-position:center;
     height: 100vh;
     /* filter: blur(50px); */
     width: 100vw;
 }
+.error-message{
+    font-size: 20px;
+    color: rgb(220, 202, 208);
+    background-color: rgb(255, 0, 38);
+    text-align: center;
+    position: relative;
+    padding: 2px;
+    left: 35%;
+    box-shadow:3px 3px 10px rgb(107, 156, 148);
+    font-weight: 600;
+    border-radius: 2px;
+    border-top-right-radius: 10px;
+    width: 170px;
+}
 .form{
     position: absolute;
-    top: 30%;
+    top: 25%;
     left: 37%;
     width: 200px;
     height: 500px;
@@ -29,20 +43,50 @@ form{
 }
 .form input{
     height: 30px;
-    font-size: 20px;
+    /* font-size: 20px; */
+    margin-top: -7px;
+    margin-bottom:5px;
+    border-radius: 3px;
+    border: 1px solid rgb(86, 140, 184);
 }
 .sub{
     margin-left: 44%;
     width: 80px;
+    font-size:17px;
     border: 1px solid rgb(1, 1, 19);
     border-radius: 5px;
 }
 .sub:hover{
     color: white;
     background-color:black;
+    cursor: pointer;
 }
 .form label{
-    background-color: #ffffff5f;
+    /* background-color: #ffffff5f; */
     width: 140px;
     border-radius: 2px;
+    color: aliceblue;
+}
+#regtext{
+    color: rgb(67, 201, 228);
+    position: relative;
+    left: 127px;
+    font-size: 17px;
+}
+#regbtn{
+    color: bisque;
+    cursor: pointer;
+    font-size: 18px;
+    position: relative;
+    left: 160px;
+    border: 1px solid rgb(50, 204, 218);
+    width: 170px;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+    
+}
+#regbtn:hover{
+    background-color: aliceblue;
+    color: black;
 }

@@ -1,6 +1,7 @@
 .reg-form{
     position: relative;
     left: 37%;
+    /* width: 100%; */
     top: 20px;
     background-color: rgba(36, 49, 59, 0.073);
     height: 750px;

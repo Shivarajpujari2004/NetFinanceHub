@@ -7,9 +7,9 @@ import dep from "../images/dep.jpg";
 import wd from "../images/wd.jpg";
 import ep from "../images/ep.png";
 import trc from "../images/trc.png";
+import { useNavigate } from 'react-router-dom';
 
 const Student = () => {
-
   return (
     <>
       <div className="left">
@@ -22,7 +22,7 @@ const Student = () => {
 
       <div className="upper">
         <div className='bb lb'>
-          <h2 className='ach'>Hi </h2>
+          <h2 className='ach'>Hi</h2>
           <div className="ub">
             <div className='tl'>
               <h3>Account Number:</h3>

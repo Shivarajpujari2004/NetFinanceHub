@@ -5,33 +5,51 @@ import { useState } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import axios from 'axios'
 const Login = () => {
+  const [username, setusername] = useState("")
+  const [phonenor, setphonenor] = useState("")
+  const [password, setpassword] = useState("")
+  const navigate=useNavigate();
+
+  const handlesubmit=(e)=>{
+    e.preventDefault()
+    axios.post('http://localhost:8000/Login',{username,phonenor,password})
+    .then((result)=>
+      {console.log(result);
+      if(result.data==="success"){
+      navigate('/Student')
+      }
+    })
+    .catch(err=>alert(err));
+   }
+
   return (
     <div className='logform'>
         <div className='form' >
-        <form >
+        <form onSubmit={handlesubmit}>
         <label htmlFor="username">USERNAME:</label>
         <input type="text" 
         placeholder='username'
         name='username'
+        onChange={(e)=>{setusername(e.target.value)}}
         />
        <label htmlFor="phonenor">PHONE-NUMBER:</label>
         <input type="tel" 
         placeholder='phonenor' 
         name="phonenor"
+        onChange={(e)=>{setphonenor(e.target.value)}}
        />
          <label htmlFor="password">PASSWORD:</label>
         <input type="password" 
         placeholder='password' 
         name="password"
+        onChange={(e)=>{setpassword(e.target.value)}}
        />
-        <Link className='sub' to="/Student" >Login</Link>
+         <input className='sub' type="submit"  value="Login" />
         <p id='regtext'>Don't have an netbanking account?</p>
         <Link to="/Register" id='regbtn'>Create your account</Link>
        
         </form>
-    
         </div>
-      
     </div>
   )
 }

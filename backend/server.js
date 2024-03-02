@@ -3,6 +3,8 @@ const User = require("./models/User")
 const cors = require("cors")
 const app = express()
 const mongoose = require('mongoose');
+const bcrypt =require('bcrypt')
+const jwt = require('jsonwebtoken');
 
 app.use(express.json())
 app.use(cors())
@@ -25,24 +27,6 @@ app.post('/Register',(req,res)=>{
   .catch(err=>res.json(err))
 })
 
-// app.post("/Login",(req,res)=>{
-//   const[username,phonenor,password]=req.body;
-//   User.findOne({username:username})
-//   .then(user=>{
-//     if(user){
-//       if(user.password===password){
-//         res.json("success")
-//       }
-//       else{
-//         res.json("Password or Username is incorrect")
-//       }
-//     }
-//     else{
-//       res.json("No Account Found..!")
-//     }
-//   })
-// })
-
 app.post("/Login", (req, res) => {
   const { username, password } = req.body;
   User.findOne({ username: username })
@@ -51,6 +35,7 @@ app.post("/Login", (req, res) => {
         if (user.password === password) {
           res.json("success");
         } else {
+          const alldata=User.find({})
           res.status(401).json({ error: "Incorrect Password", details: "Password or Username is incorrect" });
         }
       } else {
@@ -62,7 +47,6 @@ app.post("/Login", (req, res) => {
       res.status(500).json({ error: "Login failed", details: "Internal Server Error" });
     });
 });
-
 
 //routes
 

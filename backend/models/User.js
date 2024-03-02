@@ -32,20 +32,9 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  //Add reference to Profile (if needed)
-//   profile: {
-//     type: mongoose.Schema.Types.ObjectId,
-//     ref: 'Profile',
-//   },
-//   username:String,
-//   password:String,
-//   email:String,
-//   phonenor:String,
-//   accnor:Number,
-//   ifsc:String,
-//   fullname:String,
+  
 });
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('users', userSchema);
 
 module.exports = User;

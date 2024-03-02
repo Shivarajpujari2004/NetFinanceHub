@@ -8,6 +8,7 @@ const Login = () => {
   const [username, setusername] = useState("")
   const [phonenor, setphonenor] = useState("")
   const [password, setpassword] = useState("")
+  const [error, setError] = useState("");
   const navigate=useNavigate();
 
   const handlesubmit=(e)=>{
@@ -16,10 +17,13 @@ const Login = () => {
     .then((result)=>
       {console.log(result);
       if(result.data==="success"){
-      navigate('/Student')
+      
+      navigate('/Profile')
       }
     })
-    .catch(err=>alert(err));
+    .catch(err=>{
+      setError(err.response.data.details)
+    });
    }
 
   return (
@@ -47,7 +51,7 @@ const Login = () => {
          <input className='sub' type="submit"  value="Login" />
         <p id='regtext'>Don't have an netbanking account?</p>
         <Link to="/Register" id='regbtn'>Create your account</Link>
-       
+       <p className="error-message">{error}</p>
         </form>
         </div>
     </div>

@@ -4,8 +4,50 @@ import dash from "../images/dashboard.jpg";
 import dep from "../images/dep.jpg";
 import wd from "../images/wd.jpg";
 import ep from "../images/ep.png";
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
 
 const Deposit = () => {
+
+  const [user, setUser] = useState("");
+  const [amount, setamount] = useState("");//input
+  const [balance,setbalance]=useState("");
+
+  const  navigate = useNavigate();
+  const username = user.username;
+  useEffect(() => {
+    const userDataString = localStorage.getItem("userData");
+    
+    if (userDataString) {
+      const userData = JSON.parse(userDataString);
+      setUser(userData);
+    }
+    
+  }, []);
+
+  useEffect(()=>{
+    const useAccount = localStorage.getItem("useraccount");
+    if (useAccount) {
+      const userAccount = JSON.parse(useAccount);
+      if (userAccount && userAccount.amount !== undefined) {
+        setbalance(userAccount);
+      }
+    }
+  },[]);
+
+  const handlesubmit=(e)=>{
+    e.preventDefault()
+    axios.post('http://localhost:8000/deposit',{username,amount})
+    .then(result=>{console.log(result)
+      const account = result.data.acc;
+     
+      localStorage.setItem("useraccount", JSON.stringify(account));
+      setbalance(account);
+    navigate('/Student');
+    
+    })
+    .catch(err=>alert(err));
+   }
 
   return (
     <div>
@@ -18,34 +60,16 @@ const Deposit = () => {
       <div>
         <h1>Transaction History</h1>
 
-        <form onSubmit>
+        <form onSubmit={handlesubmit}>
           <label>
             Amount:
-            <input type="text" name="amount"  />
+            <input type="text" name="amount" onChange={(e)=>{setamount(e.target.value)}} />
           </label>
-          <button type="submit">Submit Transaction</button>
+          <input className='sub' type="submit" value="Register" />
         </form>
-
-  
-          <p style={{ color: 'red' }}></p>
-       
           <div>
-            <h2>Deposit History</h2>
-            <ul>
-            
-                <li >
-                  
-                  <button >Delete</button>
-                </li>
-              
-            </ul>
-            <p>Total Deposit Amount: </p>
+           <h2>Total amount: {balance.amount}</h2>
 
-            <h2>Withdrawal History</h2>
-            <p>Total Withdrawal Amount: </p>
-
-            <h2>Net Balance</h2>
-            <p></p>
           </div>
         
       </div>
@@ -55,70 +79,3 @@ const Deposit = () => {
 
 export default Deposit;
 
-// const [depositHistory, setDepositHistory] = useState([]);
-  // const [withdrawalHistory, setWithdrawalHistory] = useState([]);
-  // const [error, setError] = useState(null);
-  // const [formData, setFormData] = useState({ amount: '' });
-
-  // useEffect(() => {
-  //   // Fetch deposit history from localStorage on component mount
-  //   const storedDeposits = JSON.parse(localStorage.getItem('depositHistory')) || [];
-  //   setDepositHistory(storedDeposits);
-
-  //   // Fetch withdrawal history from localStorage on component mount
-  //   const storedWithdrawals = JSON.parse(localStorage.getItem('withdrawalHistory')) || [];
-  //   setWithdrawalHistory(storedWithdrawals);
-  // }, []);
-
-  // const handleFormSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   try {
-  //     const amount = parseFloat(formData.amount);
-  //     if (isNaN(amount) || amount <= 0) {
-  //       setError('Please enter a valid and positive amount.');
-  //       return;
-  //     }
-
-  //     const newDeposit = {
-  //       id: new Date().getTime(),
-  //       amount,
-  //       date: new Date().toLocaleString('en-US', { timeZone: 'UTC' }),
-  //     };
-
-  //     // Update local storage for deposits
-  //     const updatedDeposits = [...depositHistory, newDeposit];
-  //     localStorage.setItem('depositHistory', JSON.stringify(updatedDeposits));
-  //     setDepositHistory(updatedDeposits);
-
-  //     // Update total amount
-  //     setError(null);
-  //     setFormData({ amount: '' });
-  //   } catch (error) {
-  //     console.error('Error submitting deposit:', error);
-  //     setError('Failed to submit deposit. Please try again.');
-  //   }
-  // };
-
-  // const handleDelete = (id, type) => {
-  //   // Delete a specific deposit or withdrawal from local storage based on type
-  //   const updatedData = type === 'deposit'
-  //     ? depositHistory.filter((deposit) => deposit.id !== id)
-  //     : withdrawalHistory.filter((withdrawal) => withdrawal.id !== id);
-
-  //   type === 'deposit'
-  //     ? localStorage.setItem('depositHistory', JSON.stringify(updatedData))
-  //     : localStorage.setItem('withdrawalHistory', JSON.stringify(updatedData));
-
-  //   type === 'deposit'
-  //     ? setDepositHistory(updatedData)
-  //     : setWithdrawalHistory(updatedData);
-  // };
-
-  // const calculateTotalAmount = (data) => {
-  //   return data.reduce((total, item) => total + item.amount, 0).toFixed(2);
-  // };
-
-  // const totalDepositAmount = calculateTotalAmount(depositHistory);
-  // const totalWithdrawalAmount = calculateTotalAmount(withdrawalHistory);
-  // const netBalance = (totalDepositAmount - totalWithdrawalAmount).toFixed(2);

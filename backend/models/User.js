@@ -1,10 +1,27 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  fullname: {     //email,phonenor,accnor,username
+    type: String,
+    required: true,
+  },
   email: {
     type: String,
     required: true,
     unique: true,
+  },
+  accnor: {
+    type: Number,
+    required: true,
+  },
+  ifsc: {
+    type: String,
+    required: true,
   },
   phonenor: {
     type: String,
@@ -15,23 +32,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  fullname: {     //email,phonenor,accnor,username
-    type: String,
-    required: true,
-  },
-  ifsc: {
-    type: String,
-    required: true,
-  },
-  accnor: {
-    type: Number,
-    required: true,
-  },
-  username: {
-    type: String,
-    required: true,
-    unique: true,
-  },
+ 
   
 });
 

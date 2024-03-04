@@ -49,7 +49,7 @@ const Student = () => {
           </div>
         </div>
         <div className='bb rb'>
-          <h2 className='ach'>$200</h2>
+          <h2 className='ach'>${}</h2>
           <div className="ub">
             <div className='tl'>
               <h3>Account Type</h3>

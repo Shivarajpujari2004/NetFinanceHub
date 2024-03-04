@@ -7,11 +7,7 @@ const accountSchema = new Schema({
         type: String,
         required: true
     },
-    email: {
-        type: String,
-        required: true,
-        unique: true
-    },
+   
     amount: {
         type: Number,
         required: true,

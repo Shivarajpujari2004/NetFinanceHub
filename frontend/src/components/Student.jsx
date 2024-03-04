@@ -8,8 +8,18 @@ import wd from "../images/wd.jpg";
 import ep from "../images/ep.png";
 import trc from "../images/trc.png";
 import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 const Student = () => {
+  const [user, setUser] = useState("");
+  useEffect(() => {
+    const userDataString = localStorage.getItem("userData");
+
+    if (userDataString) {
+      const userData = JSON.parse(userDataString);
+      setUser(userData);
+    }
+  }, []);
   return (
     <>
       <div className="left">
@@ -22,16 +32,16 @@ const Student = () => {
 
       <div className="upper">
         <div className='bb lb'>
-          <h2 className='ach'>Hi</h2>
+          <h2 className='ach'>Hi  {user.username}</h2>
           <div className="ub">
             <div className='tl'>
-              <h3>Account Number:</h3>
+              <h3>Account Number: {user.accnor}</h3>
               <h4></h4>
-              <h3>Phone No:</h3>
+              <h3>Phone No: {user.phonenor}</h3>
               <h4></h4>
             </div>
             <div className='rl'>
-              <h3>Email:</h3>
+              <h3>Email: {user.email}</h3>
               <h4></h4>
               <h3>Address:</h3>
               <h4></h4>
@@ -44,14 +54,14 @@ const Student = () => {
             <div className='tl'>
               <h3>Account Type</h3>
               <h4>Savings</h4>
-              <h3>Account Number:</h3>
+              <h3>Account Number: {user.accnor}</h3>
               <h4></h4>
             </div>
             <div className='rl'>
               <h3>Branch</h3>
               <h4>bangalore</h4>
-              <h3>IFSC code</h3>
-              <h4>GD5464Gf</h4>
+              <h3>IFSC code {user.ifsc}</h3>
+              <h4></h4>
             </div>
           </div>
         </div>

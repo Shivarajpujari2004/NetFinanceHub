@@ -18,7 +18,6 @@ mongoose.connect("mongodb://localhost:27017/NETFINANCEHUB", { useNewUrlParser: t
     console.error("MongoDB connection error:", err);
   });
 
-
 //routes
 
 app.post('/Register',(req,res)=>{
@@ -27,31 +26,71 @@ app.post('/Register',(req,res)=>{
   .catch(err=>res.json(err))
 })
 
-app.post("/Login", (req, res) => {
+app.post("/Login",async (req, res) => {
   const { username, password } = req.body;
-  User.findOne({ username: username })
-    .then((user) => {
+  try{
+ const user = await User.findOne({ username: username })
+   
       if (user) {
         if (user.password === password) {
-          res.json("success");
+          const {_id, email, phonenor,password,fullname,ifsc,accnor,username } = user;
+          res.json({ success: true, userData:{_id, email, phonenor,password,fullname,ifsc,accnor,username } });
+          
         } else {
-          const alldata=User.find({})
+          
           res.status(401).json({ error: "Incorrect Password", details: "Password or Username is incorrect" });
         }
       } else {
         res.status(404).json({ error: "No Account Found", details: "No Account Found..!" });
       }
-    })
-    .catch((err) => {
+    }
+    catch(err)  {
       console.error(err);
       res.status(500).json({ error: "Login failed", details: "Internal Server Error" });
-    });
+    }
 });
 
-//routes
+
+app.get("/api/user/:username", (req, res) => {
+  const username = req.params.username;
+  // Fetch user data based on the username
+  User.findOne({ username })
+    .then((user) => {
+      if (user) {
+        res.json({ success: true, user });
+      } else {
+        res.status(404).json({ success: false, error: "User not found" });
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).json({ success: false, error: "Internal Server Error" });
+    });
+});
+//gpt
 
 app.listen(8000, () => {
   console.log("Server running");
 })
 
 
+
+//routes
+
+//gpt
+// Add a new route to get user data after login
+// app.post("/GetUserData", (req, res) => {
+//   const { username } = req.body;
+//   User.findOne({ username: username })
+//     .then((user) => {
+//       if (user) {
+//         res.json({ user });
+//       } else {
+//         res.status(404).json({ error: "No Account Found", details: "No Account Found..!" });
+//       }
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//       res.status(500).json({ error: "Failed to fetch user data", details: "Internal Server Error" });
+//     });
+// });

@@ -13,7 +13,7 @@
     border-radius: 20px;
     box-shadow: 1px 1px 10px rgb(47, 47, 132);
     padding: 10px;
-    border: 1px black solid;
+    /* border: 1px black solid; */
     width: 500px;
     position: absolute;
     left: 40%;

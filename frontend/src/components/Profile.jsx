@@ -11,7 +11,7 @@ import {jwtDecode} from 'jwt-decode';
 
 const Profile = () => {
   const [user, setUser] = useState("");
-
+  const navigate = useNavigate();
   useEffect(() => {
     const userDataString = localStorage.getItem("userData");
 
@@ -20,6 +20,12 @@ const Profile = () => {
       setUser(userData);
     }
   }, []);
+
+  const handleLogout = () =>{
+    localStorage.removeItem("userData");
+    localStorage.removeItem("useraccount");
+    navigate("/");
+  }
 
   return (
     <div>
@@ -33,13 +39,16 @@ const Profile = () => {
           <Link to="/Profile"><img src={ep} alt="" /> Profile</Link>
         </div>
        <div className='right'>
-           <img id='prof-img' src={``} alt="Profile Picture" />
+           {/* <img id='prof-img' src={``} alt="Profile Picture" /> */}
              <p className='prof-det'>Name:{user.username} </p>
              <p className='prof-det'>Account Number: {user.accnor}</p>
              <p className='prof-det'>Phone Number: {user.phonenor}</p>
              <p className='prof-det'>Email: {user.email}</p>
              <p className='prof-det'>Address: </p>
          <Link to="/Editprofile" className='editbtn'>Edit Profile</Link>
+         <form onSubmit={handleLogout}>
+          <input type="submit" value="Logout" className='sub' />
+         </form>
        </div>
      </div>
 

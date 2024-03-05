@@ -6,6 +6,7 @@ import wd from "../images/wd.jpg";
 import ep from "../images/ep.png";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import "./Deposit.css"
 
 const Withdraw = () => {
 
@@ -59,16 +60,16 @@ const Withdraw = () => {
       <div>
         <h1>Withdraw History</h1>
 
-        <form onSubmit={handlesubmit}>
+        <form className='withdraw' onSubmit={handlesubmit}>
           <label>
             Amount:
             <input type="text" name="amount" onChange={(e)=>{setamount(e.target.value)}} />
           </label>
-          <input className='sub' type="submit" value="Submit Withdrawalr" />
+          <input className='sub with' type="submit" value="Submit Withdrawl" />
         </form>
 
         <div>
-           <h2>Total amount: {balance.amount}</h2>
+           <h2 className='withamt'>Total amount: {balance.amount}</h2>
 
           </div>
       </div>

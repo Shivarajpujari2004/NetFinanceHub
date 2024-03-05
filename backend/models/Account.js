@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
 // Define the schema for the account collection
-const accountSchema = new Schema({
+const accountSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true

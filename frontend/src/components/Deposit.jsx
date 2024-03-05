@@ -6,6 +6,7 @@ import wd from "../images/wd.jpg";
 import ep from "../images/ep.png";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import "./Deposit.css"
 
 const Deposit = () => {
 
@@ -58,17 +59,17 @@ const Deposit = () => {
         <Link to="/Profile"><img src={ep} alt="" /> Profile</Link>
       </div>
       <div>
-        <h1>Transaction History</h1>
+        <h1>Deposit History</h1>
 
-        <form onSubmit={handlesubmit}>
+        <form className='withdraw' onSubmit={handlesubmit}>
           <label>
             Amount:
             <input type="text" name="amount" onChange={(e)=>{setamount(e.target.value)}} />
           </label>
-          <input className='sub' type="submit" value="Register" />
+          <input className='sub with' type="submit" value="Deposit" />
         </form>
           <div>
-           <h2>Total amount: {balance.amount}</h2>
+           <h2 className='withamt'>Total amount: {balance.amount}</h2>
 
           </div>
         

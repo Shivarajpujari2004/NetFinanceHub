@@ -1,0 +1,24 @@
+.with{
+    width: 200px;
+    position: relative;
+    right: 100px;
+}
+.withdraw{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    position: relative;
+    left: 20%;
+}
+.withdraw>label{
+    font-size: 20px;
+}
+.withamt{
+    position: relative;
+    left: 20%;
+    font-size: 30px;
+    
+}

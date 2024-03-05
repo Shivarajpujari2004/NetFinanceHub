@@ -13,14 +13,43 @@ const Register = () => {
   const[password,setpassword ] = useState("");
   const  navigate = useNavigate();
 
- const handlesubmit=(e)=>{
-  e.preventDefault()
-  axios.post('http://localhost:8000/Register',{username,fullname,email,accnor,ifsc,phonenor,password})
-  .then(result=>{console.log(result)
-  navigate('/Login')
-  })
-  .catch(err=>alert(err));
- }
+  // const createAccount = async () => {
+  //   try {
+  //     await axios.post('http://localhost:8000/account', { username, fullname, email, accnor, ifsc, phonenor, password });
+  //   } catch (err) {
+  //     console.error('Error creating account:', err);
+  //   }
+  // };
+  
+  // const registerUser = async () => {
+  //   try {
+  //     const result = await axios.post('http://localhost:8000/Register', { username, fullname, email, accnor, ifsc, phonenor, password });
+  //     console.log(result);
+  //     navigate('/Login');
+  //   } catch (err) {
+  //     console.error('Error registering user:', err);
+  //     alert(err);
+  //   }
+  // };
+  
+  // const handlesubmit = async (e) => {
+  //   e.preventDefault();
+  //   await createAccount();
+  //   await registerUser();
+  // };
+ 
+
+  const handlesubmit=(e)=>{
+    e.preventDefault()
+    axios.post('http://localhost:8000/Register',{username,fullname,email,accnor,ifsc,phonenor,password})
+    .then(result=>{console.log(result)
+    navigate('/Login')
+    })
+   
+    .catch(err=>alert(err));
+     
+   };
+  
 
   return (
     <div className='register-form'>

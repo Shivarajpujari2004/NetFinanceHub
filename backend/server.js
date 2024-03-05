@@ -10,17 +10,35 @@ const Account=require('./models/Account')
 app.use(express.json())
 app.use(cors())
 
-// mongoose.connect("mongodb://localhost:27017/NETFINANCEHUB");
-mongoose.connect("mongodb://localhost:27017/NETFINANCEHUB", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb+srv://shivukp333:1M2iWLCYyF2dXcFm@netfinancehub.tqsl92p.mongodb.net/?retryWrites=true&w=majority&appName=NetFinanceHub")
   .then(() => {
     console.log("Connected to MongoDB");
   })
   .catch((err) => {
     console.error("MongoDB connection error:", err);
   });
+// mongoose.connect("mongodb://localhost:27017/NETFINANCEHUB", { useNewUrlParser: true, useUnifiedTopology: true })
+//   .then(() => {
+//     console.log("Connected to MongoDB");
+//   })
+//   .catch((err) => {
+//     console.error("MongoDB connection error:", err);
+//   });
 
 //routes
 
+// app.post('/Register',(req,res)=>{
+//   User.create(req.body)
+//   .then(User=>res.json(User))
+//   .catch(err=>res.json(err))
+  
+// })
+
+// app.post('/account',(req,res)=>{
+//   Account.create(req.body)
+//   .then(account=>{res.json(account)})
+//   .catch(err=>res.json(err))
+// })
 app.post('/Register',(req,res)=>{
   User.create(req.body)
   const {username} = req.body;

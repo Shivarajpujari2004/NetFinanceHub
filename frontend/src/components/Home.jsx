@@ -10,7 +10,6 @@ import eduloan from "../images/eduloan.jpg";
 import homeloan from "../images/homeloan.jpg";
 import goldloan from "../images/goldloan.jpg";
 import ins from "../images/ins.jpg"
-
 import { BrowserRouter } from "react-router-dom";
 import {
   AiFillFacebook,
@@ -75,10 +74,11 @@ const Home = () => {
             alt=""
           />
           <h2 className="bh">Student Login</h2>
-          <Link className="login" to="./Login">
+          <Link className="login" to="./Login2">
             Login
           </Link>
         </div>
+
         <div className="b personal">
           <img
             id="per"

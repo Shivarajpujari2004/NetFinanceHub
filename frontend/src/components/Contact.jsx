@@ -18,9 +18,9 @@ const Contact = () => {
             <p>shivu.kp.333@gmail.com</p>
             <p>9108752296</p>
             <div className="soc">
-              <a href=""><AiFillInstagram /></a>
+              <a href="https://www.instagram.com/shivu_sp_33/?hl=en"><AiFillInstagram /></a>
               <a href=""><BsTwitterX/></a>
-              <a href=""><AiFillLinkedin/></a>
+              <a href="https://www.linkedin.com/in/shivraj-kp-9920bb255/"><AiFillLinkedin/></a>
             </div>
           </div>
           <div className="r">

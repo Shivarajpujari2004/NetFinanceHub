@@ -4,11 +4,27 @@ form{
     gap: 15px;
     border: 1px solid black;
     border-radius: 5px;
-    box-shadow: 1px 1px 10px rgb(124, 122, 122);
+    
     padding: 20px;
     width: 500px;
     background-color: #ffffff12;
     backdrop-filter: blur(10px);
+}
+.form{
+    margin-top: 20px;
+    transform: translateY(-100vw);
+    animation: left 1s ease-in forwards;
+}
+@keyframes left {
+    to {
+      transform: translatey(0);
+    }
+  }
+.f1{
+    box-shadow: 1px 1px 10px rgb(116, 116, 126);
+}
+.f2{
+    box-shadow: 1px 1px 10px rgb(26, 34, 33);
 }
 .logform{
     background-image: url("../../public/bankbg.jpg");
@@ -18,6 +34,9 @@ form{
     height: 100vh;
     /* filter: blur(50px); */
     width: 100vw;
+}
+.log2{
+    background-image: url("../../public/stud2.jpg");
 }
 .error-message{
     display: none; 

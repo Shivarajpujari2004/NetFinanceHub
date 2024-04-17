@@ -4,10 +4,12 @@
     flex-direction: column;
     float: left;
     margin:40px;
+    box-shadow: 0px 0px 10px rgba(15, 98, 94, 0.656);
     margin-left: 28px;
-    background-color: #e7edf2;
-    height: 100vh;
+    background-color: 	#34d8e793;
+    height: 70vh;
     width: 170px;
+    border-radius: 7px;
     font-family: 'Roboto', sans-serif;
 }
 .upper{
@@ -20,10 +22,9 @@
     color: aliceblue;
 }
 .bb{
-    
     width: 450px;
     border: 1px solid black;
-    height: 200px;
+    height: 230px;
     font-size: 20px;
     box-shadow: 4px 5px 6px;
 }
@@ -62,10 +63,13 @@ td{
 .lb{
     border-radius:8px;
     background: linear-gradient(90deg,rgb(68, 89, 171),rgb(134, 37, 139));
+    margin-top:20px;
 }
 .rb{
     border-radius:8px;
     background: linear-gradient(90deg,rgb(89, 173, 195),blue);
+    margin-top:20px;
+
 }
 .left a{
     font-size: 20px;
@@ -81,12 +85,28 @@ td{
 }
 caption{
     margin-bottom: 20px;
+    color:rgb(31, 23, 23);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 40px;
 }
 .tab{
-    border: 1px red solid;
+    border: 5px red solid;
     border-collapse: collapse;
-    
+    width: 900px;
 }
 th,td{
     padding: 5px;
+}
+.STUDENT{
+    background: rgb(235,243,103);
+    background: linear-gradient(103deg, rgba(219, 221, 183, 0.562) 39%, rgba(190, 220, 70, 0.584) 56%);
+    width:100vw;
+    height:100vw;
+    margin-top:-29.5px;
+}
+button{
+    background-color: rgb(152, 80, 234);
+    width:150px;
+    height:50px;
+    font-size: medium;
 }

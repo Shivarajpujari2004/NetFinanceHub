@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import dash from "../images/dashboard.jpg";
-import dep from "../images/dep.jpg";
-import wd from "../images/wd.jpg";
+import dash from "../images/das4.png";
+import dep from "../images/d1.png";
+import wd from "../images/w2.png";
 import ep from "../images/ep.png";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
@@ -11,11 +11,11 @@ import "./Deposit.css"
 const Withdraw = () => {
 
 
-  const [balance,setbalance]=useState("");
+  const [balance,setbalance]=useState({amount:0});
   const [user, setUser] = useState("");
   const [amount, setamount] = useState("");
   const  navigate = useNavigate();
-  const username = user.username;
+  const phonenor = user.phonenor;
 
   useEffect(() => {
     const userDataString = localStorage.getItem("userData");
@@ -39,7 +39,7 @@ const Withdraw = () => {
 
   const handlesubmit=(e)=>{
     e.preventDefault()
-    axios.post('http://localhost:8000/withdraw',{username,amount})
+    axios.post('http://localhost:8000/withdraw',{phonenor,amount})
     .then(result=>{console.log(result)
       const account = result.data.acc;
       localStorage.setItem("useraccount", JSON.stringify(account));
@@ -50,7 +50,7 @@ const Withdraw = () => {
    }
 
   return (
-    <div>
+    <div className='WITHDRAW'>
       <div className="left">
         <Link to="/Student"><img src={dash} alt="" /> Dashboard</Link>
         <Link to="/Deposit"><img src={dep} alt="" /> Deposit</Link>

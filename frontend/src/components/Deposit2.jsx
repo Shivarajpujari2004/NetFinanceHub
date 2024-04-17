@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import "./Deposit.css"
 
-const Deposit = () => {
+const Deposit2 = () => {
 
   const [user, setUser] = useState("");
   const [amount, setamount] = useState("");//input
@@ -53,10 +53,10 @@ const Deposit = () => {
   return (
     <div className='DEPOSIT'>
       <div className="left">
-        <Link to="/Student"><img src={dash} alt="" /> Dashboard</Link>
-        <Link to="/Deposit"><img src={dep} alt="" /> Deposit</Link>
-        <Link to="/Withdraw"><img src={wd} alt="" /> Withdraw</Link>
-        <Link to="/Profile"><img src={ep} alt="" /> Profile</Link>
+        <Link to="/Student2"><img src={dash} alt="" /> Dashboard</Link>
+        <Link to="/Deposit2"><img src={dep} alt="" /> Deposit</Link>
+        <Link to="/Withdraw2"><img src={wd} alt="" /> Withdraw</Link>
+        <Link to="/Profile2"><img src={ep} alt="" /> Profile</Link>
       </div>
       <div>
         <h1>Deposit History</h1>
@@ -78,5 +78,5 @@ const Deposit = () => {
   );
 };
 
-export default Deposit;
+export default Deposit2;
 

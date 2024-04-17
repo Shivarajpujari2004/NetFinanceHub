@@ -1,10 +1,16 @@
 .reg-form{
     position: relative;
     left: 37%;
-    /* width: 100%; */
     top: 20px;
     background-color: rgba(36, 49, 59, 0.073);
-    height: 750px;
+    height: 780px;
+}
+.reg-2{
+    position: relative;
+    left: 37%;
+    top: 20px;
+    background-color: rgba(36, 49, 59, 0.073);
+    height: 870px;
 }
 .reg-form{
     box-shadow: 1px 1px 50px -10px rgb(136, 177, 213);
@@ -14,9 +20,15 @@
     background-repeat: no-repeat;
     background-size:cover;
     background-position:center;
-    height: 800px;
+    height: 820px;
     width: 100vw;
+    overflow-x: hidden;
+} 
+.reg2{
+    background-image: url("../../public/stud6.jpg");
+    height: 890px;
 }
+
 .reg-form input{
     height: 28px;
     margin-top: -7px;
@@ -37,7 +49,7 @@
     background-color: rgba(93, 180, 204, 0.286);
     border-radius: 40px;
     padding: 8px;
-    margin-top: -30px;
+    margin-top: -40px;
 }
 .reg-form label{
     color: antiquewhite;
@@ -48,23 +60,57 @@
 }
 #regpara{
     position: relative;
-    left: 49%;
-    top: -60px;
+    left: 35%;
+    top: -13px;
     color: rgb(206, 228, 228);
+}
+
+#regpara2{
+    position: relative;
+    left: 35%;
+    top: -13px;
+    color: rgb(7, 30, 30);
 }
 #reglog{
     position: absolute;
-    left: 49.6%;
+    left: 36.6%;
     background-color: rgba(93, 180, 204, 0.286);
     color: rgb(252, 251, 255);
     border: 1px solid aqua;
     padding: 5px;
     width: 160px;
-    bottom: -160px;
+    top:680px;
     text-align: center;
     border-radius: 30px;
 }
 #reglog:hover{
     background-color: rgb(255, 255, 255);
     color: black;
+}
+.reg-error{
+    position: relative;
+    top:20px;
+}
+
+#reglog2{
+    position: absolute;
+    left: 36.6%;
+    background-color: rgba(93, 180, 204, 0.286);
+    color: rgb(252, 251, 255);
+    border: 1px solid aqua;
+    padding: 5px;
+    width: 160px;
+   top:760px;
+    text-align: center;
+    border-radius: 30px;
+}
+#reglog2:hover{
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+.reg-2-error{
+    position: relative;
+    top: 25px;
+    margin-top: 10px;
 }

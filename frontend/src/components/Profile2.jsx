@@ -9,7 +9,7 @@ import axios from 'axios';
 import {jwtDecode} from 'jwt-decode';
 
 
-const Profile = () => {
+const Profile2 = () => {
   const [user, setUser] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
@@ -24,7 +24,7 @@ const Profile = () => {
   const handleLogout = () =>{
     localStorage.removeItem("userData");
     localStorage.removeItem("useraccount");
-    localStorage.removeItem("usertransactions");
+    
     navigate("/");
   }
 
@@ -34,10 +34,10 @@ const Profile = () => {
         <>
           <div className='profile'>
        <div className="left">
-          <Link to="/Student"><img src={dash} alt="" /> Dashboard</Link>
-          <Link to="/Deposit"><img src={dep} alt="" /> Deposit</Link>
-          <Link to="/Withdraw"><img src={wd} alt="" /> Withdraw</Link>
-          <Link to="/Profile"><img src={ep} alt="" /> Profile</Link>
+          <Link to="/Student2"><img src={dash} alt="" /> Dashboard</Link>
+          <Link to="/Deposit2"><img src={dep} alt="" /> Deposit</Link>
+          <Link to="/Withdraw2"><img src={wd} alt="" /> Withdraw</Link>
+          <Link to="/Profile2"><img src={ep} alt="" /> Profile</Link>
         </div>
         <h1 className='prof'>PROFILE</h1>
        <div className='right'>
@@ -62,4 +62,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Profile2;

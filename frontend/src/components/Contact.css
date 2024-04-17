@@ -14,9 +14,9 @@
     font-family: 'Rajdhani', sans-serif;
     font-weight: 800;
 }
-    .myname{
-        font-size: 30px;
-    }
+.myname{   
+    font-size: 30px;
+}
 .up {
     height: 250px;
     /* margin: 40px; */
@@ -35,15 +35,27 @@
 }
 
 .l {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 200px;
     width: 40%;
     box-shadow: 1px 1px 10px black;
     background-color: #63e1cf;
     border-radius: 5px;
     color: rgb(5, 48, 78);
+    transform: translateX(-100vw);
+    animation: left 1.1s ease-in-out forwards;
     padding: 10px;
 }
+@keyframes left {
+    to {
+      transform: translateX(0);
+    }
+  }
+  @keyframes right {
+    to {
+      transform: translateX(0);
+    }
+  }
 
 .r {
     height: 200px;
@@ -52,7 +64,9 @@
     box-shadow: 1px 1px 10px black;
     padding: 10px;
     color: rgb(5, 48, 78);
-    border: 1px solid black;
+    transform: translateX(100vw);
+    animation: right 1.1s ease-in-out forwards;
+    /* border: 1px solid black; */
     background-color: #63e1cf;
 }
 .soc{

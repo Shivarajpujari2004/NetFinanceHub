@@ -2,8 +2,8 @@ footer{
     background-color: #4afef2;
     width: 100vw;
     height: 300px;
-    position:absolute;
-    top: 1300px;
+    position:relative;
+    bottom: -600px;
     text-decoration: none;
 }
 .foot{

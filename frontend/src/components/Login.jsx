@@ -5,8 +5,6 @@ import { useState } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import axios from 'axios'
 
-
-
 const Login = () => {
   const [username, setusername] = useState("");
   const [phonenor, setphonenor] = useState("");
@@ -37,7 +35,7 @@ const Login = () => {
   return (
     <div className='logform'>
       <div className='form' >
-        <form onSubmit={handlesubmit}>
+        <form onSubmit={handlesubmit} className='f1'>
           <label htmlFor="username">USERNAME:</label>
           <input
             type="text"

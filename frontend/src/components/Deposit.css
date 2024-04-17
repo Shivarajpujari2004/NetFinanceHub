@@ -2,6 +2,7 @@
     width: 200px;
     position: relative;
     right: 100px;
+    background-color: burlywood;
 }
 .withdraw{
     display: flex;
@@ -21,4 +22,16 @@
     left: 20%;
     font-size: 30px;
     
+}
+.DEPOSIT{
+    background: rgb(235,243,103);
+    background: linear-gradient(-110deg, rgba(90, 212, 96, 0.532) 36%, rgba(204, 242, 195, 0.63)56%);
+    width:100vw;
+    height:100vh;
+}
+.WITHDRAW{
+    background: rgb(227,230,143);
+    background: linear-gradient(103deg, rgba(224, 228, 103, 0.614) 0%, rgba(253, 45, 107, 0.762) 90%);
+    width:100vw;
+    height:100vh;
 }

@@ -1,31 +1,28 @@
 import React, { useState } from 'react';
-import "./Student"
 import "./Register.css";
 import { Link,useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axios from 'axios'
 
-const Register = () => {
+const Register2 = () => {
   const[username,setusername] = useState("");
   const[email,setemail] = useState("");
   const[fullname,setfullname ] = useState("");
   const[accnor,setaccnor ] = useState("");
   const[ifsc,setifsc ] = useState("");
+  const[schoolname,setschoolname ] = useState("");
   const[phonenor,setphonenor ] = useState("");
   const[password,setpassword ] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [passwordMatch, setPasswordMatch] = useState(true); 
-  const [error2,seterror2] = useState("");
-  const  navigate = useNavigate();
-
-  const handlesubmit=(e)=>{
-    e.preventDefault()
-
+  const [passwordMatch, setPasswordMatch] = useState(true); // State to track password match
+  const [error2,seterror2] = useState(""); 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Check if passwords match
     if (password !== confirmPassword) {
       setPasswordMatch(false);
       return;
     }
-
-    axios.post('http://localhost:8000/Register', { username, fullname, email, accnor, ifsc, phonenor, password })
+    axios.post('http://localhost:8000/Register2',{username,fullname,email,accnor,ifsc,schoolname,phonenor,password})
     .then(result => {
       if (result.data.error) {
         seterror2(result.data.error); // Update state with the error message
@@ -38,13 +35,11 @@ const Register = () => {
       console.error("Registration error:", err);
       seterror2(); // Update state with a generic error message
     });
-     
-   };
-  
-
+  };
+  const  navigate = useNavigate();
   return (
-    <div className='register-form'>
-      <form className='reg-form' onSubmit={handlesubmit}>
+    <div className='register-form reg2'>
+      <form className='reg-form reg-2' onSubmit={handleSubmit}>
       <label htmlFor="username">USERNAME:</label>
         <input type="text" 
         placeholder='username'
@@ -81,6 +76,12 @@ const Register = () => {
         name="phonenor"
         onChange={(e)=>{setphonenor(e.target.value)}}
         />
+         <label htmlFor="school">School/College name</label>
+        <input type="text"
+        placeholder='School/College name' 
+        name="schoolname" 
+        onChange={(e)=>{setschoolname(e.target.value)}}
+        />
         <label htmlFor="password">PASSWORD:</label>
         <input type="password" 
         placeholder='password' 
@@ -95,16 +96,17 @@ const Register = () => {
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
-        <br />
+        
+        <br/>
         <input className='sub' type="submit" value="Register" />
-        <p id='regpara'>Already have an account?</p>
-      <Link id='reglog' to="/Login">Login</Link>
-      {!passwordMatch && <p className="error-message reg-error">Passwords do not match!</p>}
-      <p className="error-message reg-error" >{error2}</p>
+        <p id='regpara2'>Already have an account?</p>
+      <Link id='reglog2' to="/Login2">Login</Link>
+      {!passwordMatch && <p className="error-message reg-error reg-2-error">Passwords do not match!</p>}
+      <p className="error-message reg-error reg-2-error" >{error2}</p>
       </form>
-      
     </div>
   )
 }
 
-export default Register
+export default Register2
+

@@ -2,74 +2,41 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import dash from "../images/dashboard.jpg";
-import dep from "../images/dep.jpg";
-import wd from "../images/wd.jpg";
+import dash from "../images/das4.png";
+import dep from "../images/d1.png";
+import wd from "../images/w2.png";
 import ep from "../images/ep.png";
+import "./Student"
+import axios from 'axios'
 
 const Transaction = () => {
-  const [formData, setFormData] = useState({
-    amount: '',
-    transactionType: '',
-    transactionDate: '',
-    sourceAccountNumber: '',
-    targetAccountNumber: '',
-  });
-  const [error, setError] = useState(null);
-  const location = useLocation();
-  const totalBalance = location.state ? location.state.totalBalance : 0;
-  const navigate = useNavigate();
 
-  const handleFormSubmit = (e) => {
+  const navigate = useNavigate();
+  const [amount, setamount] = useState()
+  const [snumber, setsnumber] = useState()
+  const [rnumber, setrnumber] = useState()
+  const [password,setpassword]=useState()
+  const[error,seterror] = useState()
+  const handleFormSubmit=(e)=>{
     e.preventDefault();
 
-    try {
-      // Validate form data
-      if (!formData.amount || !formData.transactionType || !formData.transactionDate || !formData.sourceAccountNumber || !formData.targetAccountNumber) {
-        setError('Please fill in all fields.');
-        return;
+    axios.post('http://localhost:8000/transaction',{amount,snumber,rnumber,password})
+    .then(result=>{console.log(result)
+      
+      const account = result.data.acc;
+      const transactions = result.data.transactions;
+      if(result.data.message==="password is incorrect"){
+      seterror(result.data.message)
+      }else{
+      localStorage.setItem("useraccount", JSON.stringify(account));      
+      localStorage.setItem("usertransactions", JSON.stringify(transactions));
+
+    navigate('/Student')
       }
-
-      // Check if there is enough balance for the transaction
-      const amount = parseFloat(formData.amount);
-      if (isNaN(amount) || amount <= 0 || amount > totalBalance) {
-        setError('Invalid amount or insufficient balance for the transaction.');
-        return;
-      }
-
-      // Fetch existing transactions from localStorage
-      const existingTransactions = JSON.parse(localStorage.getItem('transactionHistory')) || [];
-
-      // Create a new transaction
-      const newTransaction = {
-        id: new Date().getTime(),
-        ...formData,
-      };
-
-      // Update local storage with recent 5 transactions
-      const updatedTransactions = [newTransaction, ...existingTransactions.slice(0, 4)];
-      localStorage.setItem('transactionHistory', JSON.stringify(updatedTransactions));
-
-      // Update withdrawal balance in localStorage
-      const updatedWithdrawalBalance = parseFloat(localStorage.getItem('withdrawalBalance')) + parseFloat(formData.amount);
-      localStorage.setItem('withdrawalBalance', updatedWithdrawalBalance);
-
-      setFormData({
-        amount: '',
-        transactionType: '',
-        transactionDate: '',
-        sourceAccountNumber: '',
-        targetAccountNumber: '',
-      });
-      setError(null);
-
-      // Navigate to Student page after successful transaction
-      navigate('/Student', { state: { withdrawalBalance: updatedWithdrawalBalance } });
-    } catch (error) {
-      console.error('Error submitting transaction:', error);
-      setError('Failed to submit transaction. Please try again.');
-    }
-  };
+    })
+   
+    .catch(err=>alert(err));
+  }
 
   return (
     <div>
@@ -82,31 +49,14 @@ const Transaction = () => {
       <h1>Transaction Page</h1>
 
       <form onSubmit={handleFormSubmit}>
-        <label>
-          Amount:
-          <input type="text" name="amount" value={formData.amount} onChange={(e) => setFormData({ ...formData, amount: e.target.value })} />
-        </label>
-
-        <label>
-          Transaction Type:
-          <input type="text" name="transactionType" value={formData.transactionType} onChange={(e) => setFormData({ ...formData, transactionType: e.target.value })} />
-        </label>
-
-        <label>
-          Transaction Date:
-          <input type="text" name="transactionDate" value={formData.transactionDate} onChange={(e) => setFormData({ ...formData, transactionDate: e.target.value })} />
-        </label>
-
-        <label>
-          Source Account Number:
-          <input type="text" name="sourceAccountNumber" value={formData.sourceAccountNumber} onChange={(e) => setFormData({ ...formData, sourceAccountNumber: e.target.value })} />
-        </label>
-
-        <label>
-          Target Account Number:
-          <input type="text" name="targetAccountNumber" value={formData.targetAccountNumber} onChange={(e) => setFormData({ ...formData, targetAccountNumber: e.target.value })} />
-        </label>
-
+        <label htmlFor="amount">Amount:</label>
+        <input type="number" name="amount" id="" value={amount} onChange={(e)=>setamount(e.target.value)} />
+        <label htmlFor="snumber">Sender Phone-number</label>
+        <input type="text" name="snumber" id="" value={snumber} onChange={(e)=>setsnumber(e.target.value)}/>
+        <label htmlFor="rnumber">Receiver  Phone-number:</label>
+        <input type="text" name="rnumber" id="" value={rnumber} onChange={(e)=>setrnumber(e.target.value)}/>
+        <label htmlFor="password">Password:</label>
+        <input type="text" name="password" id="" value={password} onChange={(e)=>setpassword(e.target.value)}/>
         <button type="submit">Submit Transaction</button>
       </form>
 

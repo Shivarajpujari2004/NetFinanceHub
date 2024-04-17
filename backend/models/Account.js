@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 // Define the schema for the account collection
 const accountSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
+    phonenumber:{
+        type:Number,
+        required:true
     },
    
     amount: {
@@ -12,12 +12,12 @@ const accountSchema = new mongoose.Schema({
         required: true,
         default: 0
     },
-    // createdAt: {
+    
+});
+// createdAt: {
     //     type: Date,
     //     default: Date.now
     // }
-});
-
 // Create a model using the schema
 const Account = mongoose.model('Account', accountSchema);
 
